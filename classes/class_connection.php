@@ -2,16 +2,15 @@
 
 class dbconnection
 {
-    private $host = 'localhost';
-    private $dbname = 'cafe';
-    private $user = 'root';
-    private $senha = '';
+    
     private $conexao;
 
     public function connect()
     {
         try{
-            $this->conexao = new PDO("mysql:host=$this->host;dbname=$this->dbname;",$this->user,$this->senha);
+            $user = 'root';
+            $senha = '';
+            $this->conexao = new PDO("mysql:host=localhost;dbname=cafe;", $user, $senha);
             $this->conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
 
