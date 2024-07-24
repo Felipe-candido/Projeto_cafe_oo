@@ -16,5 +16,6 @@ $query->insert_membro($novo_membro);
 
 }else{
     header('index.php');
+}
 
 ?>
