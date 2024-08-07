@@ -29,17 +29,17 @@ session_start();
                 <div class="text-center p-2">
                     <span class="titulo-login">Cadastro de novos membros</span>
                 </div>
-                <form class="row" action="./includes/cadastro.php" method="post">
+                <form class="row" action="cadastrar.php" method="post">
                     <div class="mb-3 col-md-6">
-                        <label for="nomeCompleto" class="form-label">Nome Completo: </label>
-                        <input type="text" name="nomeCompleto" class="form-control" id="nomeCompleto" required>
+                        <label for="nome" class="form-label">Nome: </label>
+                        <input type="text" name="nome" class="form-control" id="nome" required>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <label for="idade" class="form-label">Semestre: </label>
-                        <input type="text" name="idade" class="form-control" id="idade" required>
+                        <label for="semestre" class="form-label">Semestre: </label>
+                        <input type="text" name="semestre" class="form-control" id="semestre" required>
                     </div>
                     <div class="form-check">
-                        <label for="sexo">Curso: </label><br>
+                        <label for="curso">Curso: </label><br>
                         <input class="form-check-input" type="radio" name="curso" id="DSM" value="1" required>
                         <label class="form-check-label" for="DSM">DSM
                         </label>
@@ -56,7 +56,7 @@ session_start();
                         <br><br>
                     </div>
                     <div class="mb-3 col-md-6">
-                        <label for="cpf" class="form-label">Ano de ingresso: </label>
+                        <label for="ano" class="form-label">Ano de ingresso: </label>
                         <input type="text" name="ano" class="form-control" id="ano" required>
                     </div>
                     <div class="col-md-12 text-center">
