@@ -15,10 +15,11 @@ class db_query
         $semestre1 = $membro->get_semestre($membro);
         $curso1 = $membro->get_curso($membro);
         $ano1 = $membro->get_ano($membro);
+        $id1 = 1;
         
 
-        $query = $connection->connect()->prepare('INSERT INTO membros (nome, semestre, curso, ano) VALUES (:nome :semestre, :curso, :ano)');
-        // $query->bindParam(':id', $membro->id);
+        $query = $connection->connect()->prepare('INSERT INTO membros (id, nome, semestre, curso, ano) VALUES (:id, :nome, :semestre, :curso, :ano)');
+        $query->bindParam(':id', $id1);
         $query->bindParam(':nome', $nome1);
         $query->bindParam(':semestre', $semestre1);
         $query->bindParam(':curso', $membro1);
