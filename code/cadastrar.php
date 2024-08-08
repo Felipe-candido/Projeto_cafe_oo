@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $novo_membro = new Membro($nome, $semestre, $curso, $ano);
     $query = new db_queries;
-    $query->insert_membro($novo_membro);
+    $query->insert_membro($nome, $semestre, $curso, $ano);
 
     $novo_membro->exibir_membro($novo_membro);
 }else{

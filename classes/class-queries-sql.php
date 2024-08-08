@@ -4,7 +4,7 @@ class db_queries
 {
     private $connection;
 
-    public function insert_membro($membro)
+    public function insert_membro($nome, $semestre, $curso, $ano)
     {
         // cria a conexão com o banco de dados
         $connection = new dbconnection;
