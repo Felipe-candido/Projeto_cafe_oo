@@ -27,6 +27,26 @@ class Membro
         echo "$membro->ano";
     }
 
+    public function get_nome($membro)
+    {
+        return $membro->nome;
+    }
+
+    public function get_semestre($membro)
+    {
+        return $membro->semestre;
+    }
+
+    public function get_curso($membro)
+    {
+        return $membro->curso;
+    }
+
+    public function get_ano($membro)
+    {
+        return $membro->ano;
+    }
+
     // função para validar todos os dados do cadastro
     // public function validar_cadastro()
     // {
