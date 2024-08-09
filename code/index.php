@@ -73,8 +73,8 @@ require_once ('../classes/class-crud.php');
                     ini_set('display_startup_errors', 1);
                     error_reporting(E_ALL);
                     $peido = new db_query;
-                    $peido->select_id();
-                    echo $peido;
+                    $result = $peido->select_id();
+                    echo $result['id'];
                 ?>
 
 

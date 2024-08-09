@@ -37,7 +37,7 @@ class db_query
         $connection = new dbconnection;
         $query = $connection->connect()->prepare('SELECT id FROM membros ORDER BY id desc LIMIT 1');
         $query->execute();
-        return $query;
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
 
