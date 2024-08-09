@@ -68,17 +68,6 @@ require_once ('../classes/class-crud.php');
                     </div>
                 </form>
 
-                <?php
-                    ini_set('display_errors', 1);
-                    ini_set('display_startup_errors', 1);
-                    error_reporting(E_ALL);
-                    $peido = new db_query;
-                    $result = $peido->select_id();
-                    echo $result['id'];
-                ?>
-
-
-
 
             </div>
         </div>

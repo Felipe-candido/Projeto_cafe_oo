@@ -7,18 +7,18 @@ class db_query
     private $connection;
 
     // FUNÇÃO PARA INSERIR OS DADOS NO BANCO
-    public function insert_membro($nome, $semestre, $curso, $ano, $membro)
+    public function insert_membro($id, $nome, $semestre, $curso, $ano, $membro)
     {
         // cria a conexão com o banco de dados
         $connection = new dbconnection;
 
-        $novo_membro = new membro($nome, $semestre, $curso, $ano);
+        $novo_membro = new membro($id, $nome, $semestre, $curso, $ano);
         
+        $id1 = $membro->get_id($membro); 
         $nome1 = $membro->get_nome($membro);
         $semestre1 = $membro->get_semestre($membro);
         $curso1 = $membro->get_curso($membro);
         $ano1 = $membro->get_ano($membro);
-        $id1 = 1;
         
 
         $query = $connection->connect()->prepare('INSERT INTO membros (id, nome, semestre, curso, ano) VALUES (:id, :nome, :semestre, :curso, :ano)');

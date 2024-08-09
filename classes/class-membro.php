@@ -10,7 +10,7 @@ class Membro
 
 
     // cria uma instância de membro com todos os dados do formulário
-    public function __construct($nome, $semestre, $curso, $ano)
+    public function __construct($id, $nome, $semestre, $curso, $ano)
     {
         $this->id = $id; 
         $this->nome = $nome; 
@@ -21,10 +21,17 @@ class Membro
 
     public function exibir_membro($membro)
     {
+        echo "$membro->id";
         echo "$membro->nome";
         echo "$membro->semestre";
         echo "$membro->curso";
         echo "$membro->ano";
+    }
+
+
+    public function get_id($membro)
+    {
+        return $membro->id;
     }
 
     public function get_nome($membro)
