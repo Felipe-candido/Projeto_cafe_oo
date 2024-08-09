@@ -12,7 +12,7 @@ class Membro
     // cria uma instância de membro com todos os dados do formulário
     public function __construct($nome, $semestre, $curso, $ano)
     {
-        // $this->id = $id; 
+        $this->id = $id; 
         $this->nome = $nome; 
         $this->semestre = $semestre; 
         $this->curso = $curso; 

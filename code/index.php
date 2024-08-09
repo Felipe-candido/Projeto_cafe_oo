@@ -1,5 +1,9 @@
 <?php
+
 session_start();
+require_once ('../classes/class-membro.php');
+require_once ('../classes/class_connection.php');
+require_once ('../classes/class-crud.php');
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +67,19 @@ session_start();
                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>
                 </form>
+
+                <?php
+                    ini_set('display_errors', 1);
+                    ini_set('display_startup_errors', 1);
+                    error_reporting(E_ALL);
+                    $peido = new db_query;
+                    $peido->select_id();
+                    echo $peido;
+                ?>
+
+
+
+
             </div>
         </div>
     </div>

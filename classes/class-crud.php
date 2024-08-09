@@ -1,9 +1,12 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 class db_query
 {
     private $connection;
 
+    // FUNÇÃO PARA INSERIR OS DADOS NO BANCO
     public function insert_membro($nome, $semestre, $curso, $ano, $membro)
     {
         // cria a conexão com o banco de dados
@@ -22,10 +25,23 @@ class db_query
         $query->bindParam(':id', $id1);
         $query->bindParam(':nome', $nome1);
         $query->bindParam(':semestre', $semestre1);
-        $query->bindParam(':curso', $membro1);
+        $query->bindParam(':curso', $curso1);
         $query->bindParam(':ano', $ano1);
         $query->execute();
     }
+
+
+    // FUNÇÃO PARA PEGAR O ULTIMO ID A FIM DE INCREMENTAR PARA O PROXIMO MEMBRO
+    public function select_id()
+    {
+        $connection = new dbconnection;
+        $query = $connection->connect()->prepare('SELECT id FROM membros ORDER BY id desc LIMIT 1');
+        $query->execute();
+        return $query;
+    }
+
+
+
 }
 
 ?>
