@@ -9,8 +9,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $query_id = new db_query;
     $result = $query_id->select_id();
 
+    if (!$result){
+        $id = 1;
+    }
+    else{
+        $id = $result['id'] + 1;
+    }
 
-    $id = $result['id'] + 1;
     $nome = $_POST['nome'];
     $semestre = $_POST['semestre'];
     $curso = $_POST['curso'];
