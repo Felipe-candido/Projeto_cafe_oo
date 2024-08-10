@@ -16,9 +16,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $id = $result['id'] + 1;
     }
 
+
+    //COMANDO PARA IDENTIFICAR OS CURSOS
+    $aux = $_POST['curso'];
+    switch ($aux) {
+        case '1':
+            $curso = "DSM";
+            break;
+
+        case '2':
+            $curso = "GE";
+            break;
+
+
+        case '3':
+            $curso = "SI";
+            break;
+    }
+
     $nome = $_POST['nome'];
     $semestre = $_POST['semestre'];
-    $curso = $_POST['curso'];
     $ano = $_POST['ano'];
 
 
