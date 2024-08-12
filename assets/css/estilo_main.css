@@ -1,6 +1,10 @@
 
 @import url(./index.css);
 
+.forms{
+    display: none;
+}
+
 .titulo-login {
     font-size: 16px;
     font-weight: bold !important;
