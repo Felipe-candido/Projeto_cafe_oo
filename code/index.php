@@ -6,6 +6,11 @@
     <title>Turma do Café - Fatec Araras</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/estilo_main.css">
+    <style>
+        .forms{
+        display: none;  
+    }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -85,8 +90,14 @@
         // Mostra o formulário quando o link na navbar for clicado
         document.getElementById('forms_membros').addEventListener('click', function(event) {
             event.preventDefault();
-            var formulario = document.getElementById('forms');
-            formulario.style.display = 'block';
+            var formulario = document.querySelector('.forms');
+            if(formulario.style.display == 'block'){
+                formulario.style.display = 'none';
+            }
+            else{
+                formulario.style.display = 'block';
+            }
+            
         });
     </script>
 
