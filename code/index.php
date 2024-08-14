@@ -38,6 +38,8 @@
         </div>
     </nav>
 
+
+    <!-- FORMULÁRIO PARA CADASTRO DE MEMBROS -->
     <div class="forms">
         <div class="container mt-4">
             <div class="py-7 py-md-10" id="divCadastro">
@@ -62,7 +64,7 @@
                                 </label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="curso" id="GE" value="2" required>,
+                                <input class="form-check-input" type="radio" name="curso" id="GE" value="2" required>
                                 <label class="form-check-label" for="GE">GE
                                 </label>
                             </div>
@@ -86,6 +88,45 @@
         </div>
     </div>
 
+
+    <!-- INTERFACE PARA EXIBIR OS MEMBROS CADASTRADOS -->
+    <div class="membros">
+        <div class="container mt-5">
+            <h1 class="text-center">Membros Registrados</h1>
+            <table class="table table-striped mt-4">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Semestre</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Ano de Ingresso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>João Silva</td>
+                        <td>3º</td>
+                        <td>Engenharia de Computação</td>
+                        <td>2022</td>
+                    </tr>
+                    <tr>
+                        <td>Maria Oliveira</td>
+                        <td>2º</td>
+                        <td>Administração</td>
+                        <td>2023</td>
+                    </tr>
+                    <tr>
+                        <td>Pedro Souza</td>
+                        <td>1º</td>
+                        <td>Direito</td>
+                        <td>2024</td>
+                    </tr>
+                    <!-- Adicione mais membros aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <script>
         // Mostra o formulário quando o link na navbar for clicado
         document.getElementById('forms_membros').addEventListener('click', function(event) {
@@ -104,5 +145,8 @@
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
