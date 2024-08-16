@@ -9,7 +9,11 @@
     <style>
         .forms{
         display: none;  
-    }
+        }
+
+        .membros{
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -28,7 +32,7 @@
                         <a class="nav-link" href="#" onclick="showEditForm()">Editar Participante</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="loadParticipants()">Carregar Participantes</a>
+                        <a class="nav-link" href="#" id="carregar_membros" onclick="loadParticipants()">Carregar Membros</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="saveParticipants()">Gravar Participantes</a>
@@ -127,18 +131,34 @@
         </div>
     </div>
 
+    <!-- SCRIPT PARA ABRIR E FECHAR OS MENUS DO SITE -->
     <script>
-        // Mostra o formulário quando o link na navbar for clicado
+        // MOSTRA O FORMULÁRIO AO CLICAR NO BOTÃO DA NAVBAR
         document.getElementById('forms_membros').addEventListener('click', function(event) {
             event.preventDefault();
             var formulario = document.querySelector('.forms');
+            var membros = document.querySelector('.membros')
             if(formulario.style.display == 'block'){
                 formulario.style.display = 'none';
             }
             else{
+                membros.style.display = 'none';
                 formulario.style.display = 'block';
+            }  
+        });
+
+        // EXIBE A TABELA DE PARTICIPANTES AO CLICAR NO BOTÃO DA NAVBAR
+        document.getElementById('carregar_membros').addEventListener('click', function(event) {
+            event.preventDefault();
+            var formulario = document.querySelector('.forms');
+            var membros = document.querySelector('.membros')
+            if(membros.style.display == 'block'){
+                membros.style.display = 'none';
             }
-            
+            else{
+                formulario.style.display = 'none';
+                membros.style.display = 'block';
+            }  
         });
     </script>
 
