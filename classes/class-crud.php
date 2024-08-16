@@ -7,12 +7,10 @@ class db_query
     private $connection;
 
     // FUNÇÃO PARA INSERIR OS DADOS NO BANCO
-    public function insert_membro($id, $nome, $semestre, $curso, $ano, $membro)
+    public function insert_membro($membro)
     {
         // cria a conexão com o banco de dados
         $connection = new dbconnection;
-
-        $novo_membro = new membro($id, $nome, $semestre, $curso, $ano);
         
         $id1 = $membro->get_id($membro); 
         $nome1 = $membro->get_nome($membro);
@@ -38,6 +36,14 @@ class db_query
         $query = $connection->connect()->prepare('SELECT id FROM membros ORDER BY id desc LIMIT 1');
         $query->execute();
         return $query->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+    // FUNÇÃO PARA EXIBIR MEMBROS
+    public function exibir_participantes($membro){
+
+        $connection = new dbconnection;
+        $connection->connect();
     }
 
 
