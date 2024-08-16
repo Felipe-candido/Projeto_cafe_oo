@@ -35,15 +35,20 @@ class db_query
         $connection = new dbconnection;
         $query = $connection->connect()->prepare('SELECT id FROM membros ORDER BY id desc LIMIT 1');
         $query->execute();
+        
         return $query->fetch(PDO::FETCH_ASSOC);
     }
 
 
     // FUNÇÃO PARA EXIBIR MEMBROS
-    public function exibir_participantes($membro){
+    public function exibir_participantes($membro, id){
 
         $connection = new dbconnection;
-        $connection->connect();
+
+        $query = $connection->connect()->prepare('SELECT * FROM membros WHERE id = :id');
+        $query->execute();
+
+        return $query->fetch(PDO::FETCH_ASSOC);
     }
 
 
