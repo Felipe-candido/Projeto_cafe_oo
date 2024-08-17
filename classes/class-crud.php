@@ -41,7 +41,7 @@ class db_query
 
 
     // FUNÇÃO PARA EXIBIR MEMBROS
-    public function exibir_participantes($membro, id){
+    public function exibir_participantes($membro, $id){
 
         $connection = new dbconnection;
 
