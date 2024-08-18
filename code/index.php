@@ -14,6 +14,14 @@
         .membros{
             display: block;
         }
+
+        .editar{
+            display: none;
+        }
+
+        .form_editar{
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -29,7 +37,7 @@
                         <a class="nav-link" href="#" id="forms_membros">Inserir Participante</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="showEditForm()">Editar Participante</a>
+                        <a class="nav-link" href="#" id="editar_membro" onclick="showEditForm()">Editar Participante</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="carregar_membros" onclick="loadParticipants()">Carregar Membros</a>
@@ -139,17 +147,93 @@
         </div>
     </div>
 
+
+    <!-- INTERFACE PARA EDITAR OS DADOS DE UM MEMBRO -->
+    <div class="editar">
+        <div class="container mt-4">
+            <div class="py-7 py-md-10" id="divCadastro">
+                <div class="row m-0 justify-content-center">
+                    <div class="col-7 px-md-4 py-md-4 bg-body-tertiary shadow-button">
+                        <div class="text-center p-2">
+                            <span class="titulo-login">Editar participante</span>
+                        </div>
+                        <form class="row" action="editar.php" method="post">
+                            <div class="mb-3 col-md-6">
+                                <label for="nome" class="form-label">Digite o id do membro </label>
+                                <input type="text" name="membro" class="form-control" id="membro" required>
+                            </div>
+                            
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary" id="editar2">Editar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form_editar">
+        <div class="container mt-4">
+            <div class="py-7 py-md-10" id="divCadastro">
+                <div class="row m-0 justify-content-center">
+                    <div class="col-7 px-md-4 py-md-4 bg-body-tertiary shadow-button">
+                        <div class="text-center p-2">
+                            <span class="titulo-login">Editar membro</span>
+                        </div>
+                        <form class="row" action="editar.php" method="post">
+                            <div class="mb-3 col-md-6">
+                                <label for="nome" class="form-label">Nome: </label>
+                                <input type="text" name="nome" class="form-control" id="nome" required>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="semestre" class="form-label">Semestre: </label>
+                                <input type="text" name="semestre" class="form-control" id="semestre" required>
+                            </div>
+                            <div class="form-check">
+                                <label for="curso">Curso: </label><br>
+                                <input class="form-check-input" type="radio" name="curso" id="DSM" value="1" required>
+                                <label class="form-check-label" for="DSM">DSM
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="curso" id="GE" value="2" required>
+                                <label class="form-check-label" for="GE">GE
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="curso" id="SI" value="3" required>
+                                <label class="form-check-label" for="SI">SI
+                                </label>
+                                <br><br>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="ano" class="form-label">Ano de ingresso: </label>
+                                <input type="text" name="ano" class="form-control" id="ano" required>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- SCRIPT PARA ABRIR E FECHAR OS MENUS DO SITE -->
     <script>
         // MOSTRA O FORMULÁRIO AO CLICAR NO BOTÃO DA NAVBAR
         document.getElementById('forms_membros').addEventListener('click', function(event) {
             event.preventDefault();
             var formulario = document.querySelector('.forms');
-            var membros = document.querySelector('.membros')
+            var membros = document.querySelector('.membros');
+            var editar = document.querySelector('.editar');
             if(formulario.style.display == 'block'){
                 formulario.style.display = 'none';
             }
             else{
+                editar.style.display = 'none';
                 membros.style.display = 'none';
                 formulario.style.display = 'block';
             }  
@@ -159,15 +243,45 @@
         document.getElementById('carregar_membros').addEventListener('click', function(event) {
             event.preventDefault();
             var formulario = document.querySelector('.forms');
-            var membros = document.querySelector('.membros')
+            var membros = document.querySelector('.membros');
+            var editar = document.querySelector('.editar');
             if(membros.style.display == 'block'){
                 membros.style.display = 'none';
             }
             else{
+                editar.style.display = 'none';
                 formulario.style.display = 'none';
                 membros.style.display = 'block';
             }  
         });
+
+
+        // EXIBE O FORMULÁRIO PARA EDITAR MEMBRO AO CLICAR NO BOTÃO DA NAVBAR
+        document.getElementById('editar_membro').addEventListener('click', function(event) {
+            event.preventDefault();
+            var editar = document.querySelector('.editar');
+            var formulario = document.querySelector('.forms');
+            var membros = document.querySelector('.membros')
+            if(editar.style.display == 'block'){
+                editar.style.display = 'none';
+            }
+            else{
+                editar.style.display = 'block';
+                formulario.style.display = 'none';
+                membros.style.display = 'none';
+            }  
+        });
+
+
+        // EXIBE O FORMULÁRIO PARA EDITAR UM MEMBRO
+        document.getElementById('editar2').addEventListener('click', function(event){
+            event.preventDefault();
+            var form_editar = document.querySelector('.form_editar');
+            var editar = document.querySelector('.editar');
+            editar.style.display = 'none';
+            form_editar.style.display = 'block';
+        });
+
     </script>
 
     
