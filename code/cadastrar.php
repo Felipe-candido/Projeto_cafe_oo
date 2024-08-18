@@ -3,6 +3,7 @@ require_once ('../classes/class-membro.php');
 require_once ('../classes/class_connection.php');
 require_once ('../classes/class-crud.php');
 
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // COMANDOS PARA RECEBER OS DADOS DO FORMULÁRIO E ATRIBUÍ-LOS A UMA VARIÁVEL //
@@ -44,8 +45,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $query->insert_membro($novo_membro);
 
     $novo_membro->exibir_membro($novo_membro);
+    
 }else{
     header('index.php');
 }
 
+                
 ?>
+

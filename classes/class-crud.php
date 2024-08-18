@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
 class db_query
 {
     private $connection;
@@ -41,14 +42,16 @@ class db_query
 
 
     // FUNÇÃO PARA EXIBIR MEMBROS
-    public function exibir_participantes($membro, $id){
+    public function exibir_participantes($id){
 
         $connection = new dbconnection;
-
-        $query = $connection->connect()->prepare('SELECT * FROM membros WHERE id = :id');
+        $query = $connection->connect()->prepare('SELECT id, nome, semestre, curso, ano FROM membros WHERE id = :id');
+        $query->bindParam(':id', $id);
         $query->execute();
 
         return $query->fetch(PDO::FETCH_ASSOC);
+    
+    
     }
 
 

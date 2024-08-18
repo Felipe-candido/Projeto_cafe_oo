@@ -12,7 +12,7 @@
         }
 
         .membros{
-            display: none;
+            display: block;
         }
     </style>
 </head>
@@ -100,6 +100,7 @@
             <table class="table table-striped mt-4">
                 <thead class="thead-dark">
                     <tr>
+                        <th scope="col">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Semestre</th>
                         <th scope="col">Curso</th>
@@ -107,25 +108,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>João Silva</td>
-                        <td>3º</td>
-                        <td>Engenharia de Computação</td>
-                        <td>2022</td>
-                    </tr>
-                    <tr>
-                        <td>Maria Oliveira</td>
-                        <td>2º</td>
-                        <td>Administração</td>
-                        <td>2023</td>
-                    </tr>
-                    <tr>
-                        <td>Pedro Souza</td>
-                        <td>1º</td>
-                        <td>Direito</td>
-                        <td>2024</td>
-                    </tr>
-                    <!-- Adicione mais membros aqui -->
+                    <?php
+                    require_once ('../classes/class-membro.php');
+                    require_once ('../classes/class_connection.php');
+                    require_once ('../classes/class-crud.php');
+
+                    $query = new db_query;
+                    $max = $query->select_id();
+                    $id1 = 1;
+
+                    while ($id1 <= $max['id']){
+                        $membro = $query->exibir_participantes($id1);
+                        if ($membro !== false && is_array($membro)) {
+                            echo '<tr>';
+                                echo '<td>'. $membro['id']. '</td>';
+                                echo '<td>'. $membro['nome']. '</td>';
+                                echo '<td>'. $membro['semestre']. '</td>';
+                                echo '<td>'. $membro['curso']. '</td>';
+                                echo '<td>'. $membro['ano']. '</td>';
+                            echo '<tr>';
+                        } else {
+                            // Lidar com o erro, como exibir uma mensagem ou pular para o próximo item
+                            echo '<tr><td colspan="5">Nenhum dado encontrado ou erro na consulta.</td></tr>';
+                        }
+                        $id1 = $id1 + 1;
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>
