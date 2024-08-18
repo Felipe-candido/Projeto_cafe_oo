@@ -44,10 +44,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $query = new db_query;
     $query->insert_membro($novo_membro);
 
-    $novo_membro->exibir_membro($novo_membro);
+    header("Location: index.php");
     
 }else{
-    header('index.php');
+    header("Location: index.php");
 }
 
                 
