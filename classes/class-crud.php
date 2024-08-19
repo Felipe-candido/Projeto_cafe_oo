@@ -50,8 +50,6 @@ class db_query
         $query->execute();
 
         return $query->fetch(PDO::FETCH_ASSOC);
-    
-    
     }
 
 

@@ -157,10 +157,10 @@
                         <div class="text-center p-2">
                             <span class="titulo-login">Editar participante</span>
                         </div>
-                        <form class="row" action="editar.php" method="post">
+                        <form class="row" id="editar_membros2" method="post">
                             <div class="mb-3 col-md-6">
-                                <label for="nome" class="form-label">Digite o id do membro </label>
-                                <input type="text" name="membro" class="form-control" id="membro" required>
+                                <label for="id_editar" class="form-label">Digite o id do membro </label>
+                                <input type="text" name="id_editar" class="form-control" id="id_editar" required>
                             </div>
                             
                             <div class="col-md-12 text-center">
@@ -184,20 +184,20 @@
                         <form class="row" action="editar.php" method="post">
                             <div class="mb-3 col-md-6">
                                 <label for="nome" class="form-label">Nome: </label>
-                                <input type="text" name="nome" class="form-control" id="nome" required>
+                                <input type="text" name="nome_editar" class="form-control" id="nome_editar" required>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <label for="semestre" class="form-label">Semestre: </label>
-                                <input type="text" name="semestre" class="form-control" id="semestre" required>
+                                <input type="text" name="semestre_editar" class="form-control" id="semestre_editar" required>
                             </div>
                             <div class="form-check">
                                 <label for="curso">Curso: </label><br>
-                                <input class="form-check-input" type="radio" name="curso" id="DSM" value="1" required>
+                                <input class="form-check-input" type="radio" name="curso" id="DSM_editar" value="1" required>
                                 <label class="form-check-label" for="DSM">DSM
                                 </label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="curso" id="GE" value="2" required>
+                                <input class="form-check-input" type="radio" name="curso" id="GE_editar" value="2" required>
                                 <label class="form-check-label" for="GE">GE
                                 </label>
                             </div>
@@ -221,74 +221,12 @@
         </div>
     </div>
 
-    <!-- SCRIPT PARA ABRIR E FECHAR OS MENUS DO SITE -->
-    <script>
-        // MOSTRA O FORMULÁRIO AO CLICAR NO BOTÃO DA NAVBAR
-        document.getElementById('forms_membros').addEventListener('click', function(event) {
-            event.preventDefault();
-            var formulario = document.querySelector('.forms');
-            var membros = document.querySelector('.membros');
-            var editar = document.querySelector('.editar');
-            if(formulario.style.display == 'block'){
-                formulario.style.display = 'none';
-            }
-            else{
-                editar.style.display = 'none';
-                membros.style.display = 'none';
-                formulario.style.display = 'block';
-            }  
-        });
-
-        // EXIBE A TABELA DE PARTICIPANTES AO CLICAR NO BOTÃO DA NAVBAR
-        document.getElementById('carregar_membros').addEventListener('click', function(event) {
-            event.preventDefault();
-            var formulario = document.querySelector('.forms');
-            var membros = document.querySelector('.membros');
-            var editar = document.querySelector('.editar');
-            if(membros.style.display == 'block'){
-                membros.style.display = 'none';
-            }
-            else{
-                editar.style.display = 'none';
-                formulario.style.display = 'none';
-                membros.style.display = 'block';
-            }  
-        });
-
-
-        // EXIBE O FORMULÁRIO PARA EDITAR MEMBRO AO CLICAR NO BOTÃO DA NAVBAR
-        document.getElementById('editar_membro').addEventListener('click', function(event) {
-            event.preventDefault();
-            var editar = document.querySelector('.editar');
-            var formulario = document.querySelector('.forms');
-            var membros = document.querySelector('.membros')
-            if(editar.style.display == 'block'){
-                editar.style.display = 'none';
-            }
-            else{
-                editar.style.display = 'block';
-                formulario.style.display = 'none';
-                membros.style.display = 'none';
-            }  
-        });
-
-
-        // EXIBE O FORMULÁRIO PARA EDITAR UM MEMBRO
-        document.getElementById('editar2').addEventListener('click', function(event){
-            event.preventDefault();
-            var form_editar = document.querySelector('.form_editar');
-            var editar = document.querySelector('.editar');
-            editar.style.display = 'none';
-            form_editar.style.display = 'block';
-        });
-
-    </script>
-
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../assets/scripts/javascript.js"></script>
 </body>
 </html>
