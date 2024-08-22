@@ -122,7 +122,7 @@
                     require_once ('../classes/class-crud.php');
 
                     $query = new db_query;
-                    $max = $query->select_id();
+                    $max = $query->();
                     $id1 = 1;
 
                     while ($id1 <= $max['id']){
@@ -148,7 +148,7 @@
     </div>
 
 
-    <!-- INTERFACE PARA EDITAR OS DADOS DE UM MEMBRO -->
+    <!-- INTERFACE PARA SELECIONAR O MEMBRO A SER EDITADO PELO ID -->
     <div class="editar">
         <div class="container mt-4">
             <div class="py-7 py-md-10" id="divCadastro">
@@ -212,7 +212,7 @@
                                 <input type="text" name="ano" class="form-control" id="ano" required>
                             </div>
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                <button type="submit" class="btn btn-primary">Editar</button>
                             </div>
                         </form>
                     </div>

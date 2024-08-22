@@ -4,11 +4,12 @@ require_once ('../classes/class_connection.php');
 require_once ('../classes/class-crud.php');
 
 if (isset($_POST['id_editar'])) {
+   
     $id_editar = $_POST['id_editar'];
-    echo $id_editar;
-} else {
-    echo "ID não recebido.";
-}
 
-// header("location: index.php");
+    if (isset($_POST['nome']) && isset($_POST['semestre']) && isset ($_POST['curso']) && isset($_POST['ano'])){
+        $connection = new db_query;
+        $editar = $connection()->connect()->param
+        }
+}
 ?>
