@@ -122,7 +122,7 @@
                     require_once ('../classes/class-crud.php');
 
                     $query = new db_query;
-                    $max = $query->();
+                    $max = $query->select_id();
                     $id1 = 1;
 
                     while ($id1 <= $max['id']){
@@ -164,7 +164,7 @@
                             </div>
                             
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary" id="editar2">Editar</button>
+                                <button class="btn btn-primary" id="editar2">Editar</button>
                             </div>
                         </form>
                     </div>
