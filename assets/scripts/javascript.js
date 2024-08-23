@@ -77,3 +77,28 @@
             .catch(error => console.error('Erro:', error));
 
         });
+
+
+        // SCRIPT PARA ENVIAR O ID DO MEMBRO A SER EDITADO VIA AJAX
+        document.getElementById('editar_membros3').addEventListener('submit', function(event){
+            event.preventDefault();
+            
+            var formData = new FormData(this);
+
+            fetch('editar.php', {
+                method: 'POST',
+                body: formData
+                
+            })
+            
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+
+                document.querySelector('.form_editar').style.display = 'none';
+                document.querySelector('.membros').style.display = 'block';
+            })
+
+            .catch(error => console.error('Erro:', error));
+
+        });
