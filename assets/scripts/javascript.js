@@ -1,105 +1,73 @@
-        // MOSTRA O FORMULÁRIO AO CLICAR NO BOTÃO DA NAVBAR
-        document.getElementById('forms_membros').addEventListener('click', function(event) {
-            event.preventDefault();
-            var formulario = document.querySelector('.forms');
-            var membros = document.querySelector('.membros');
-            var editar = document.querySelector('.editar');
-            var form_editar = document.querySelector('.form_editar');
-            if(formulario.style.display == 'block'){
-                formulario.style.display = 'none';
-            }
-            else{
-                form_editar.style.display = 'none';
-                editar.style.display = 'none';
-                membros.style.display = 'none';
-                formulario.style.display = 'block';
-            }  
-        });
+// SCRIPTS PARA EXIBIR AS SEÇÕES A PARTIR DA NAVBAR
 
-        // EXIBE A TABELA DE PARTICIPANTES AO CLICAR NO BOTÃO DA NAVBAR
-        document.getElementById('carregar_membros').addEventListener('click', function(event) {
-            event.preventDefault();
-            var formulario = document.querySelector('.forms');
-            var membros = document.querySelector('.membros');
-            var editar = document.querySelector('.editar');
-            var form_editar = document.querySelector('.form_editar');
-            if(membros.style.display == 'block'){
-                membros.style.display = 'none';
-            }
-            else{
-                form_editar.style.display = 'none';
-                editar.style.display = 'none';
-                formulario.style.display = 'none';
-                membros.style.display = 'block';
-            }  
-        });
+// HOME
+document.getElementById('forms_membros').addEventListener('click', function(event) {
+    event.preventDefault();
+    var formulario = document.querySelector('.forms');
+    var home = document.querySelector('.home');
+    var membros = document.querySelector('.membros');
+    var editar = document.querySelector('.editar');
+
+    // Esconder todas as seções
+    home.style.display = 'none';
+    membros.style.display = 'none';
+    editar.style.display = 'none';
+
+    // Mostrar o formulário de membros
+    formulario.style.display = 'block';
+});
 
 
-        // EXIBE O FORMULÁRIO PARA ESCOLHER E EDITAR UM MEMBRO ATRAVES DO ID
-        document.getElementById('editar_membro').addEventListener('click', function(event) {
-            // event.preventDefault();
-            var editar = document.querySelector('.editar');
-            var formulario = document.querySelector('.forms');
-            var membros = document.querySelector('.membros');
-            var form_editar = document.querySelector('.form_editar');
-            if(editar.style.display == 'block'){
-                editar.style.display = 'none';
-            }
-            else{
-                editar.style.display = 'block';
-                formulario.style.display = 'none';
-                membros.style.display = 'none';
-                form_editar.style.display = 'none';
-            }  
-        });
+// REGISTRO DE MEMBROS
+document.getElementById('home').addEventListener('click', function(event) {
+    event.preventDefault();
+    var formulario = document.querySelector('.forms');
+    var home = document.querySelector('.home');
+    var membros = document.querySelector('.membros');
+    var editar = document.querySelector('.editar');
+
+    // Esconder todas as seções
+    membros.style.display = 'none';
+    editar.style.display = 'none';
+    formulario.style.display = 'none';
+    
+    // Mostrar o formulário de membros
+    home.style.display = 'block';
+});
 
 
-        // SCRIPT PARA ENVIAR O ID DO MEMBRO A SER EDITADO VIA AJAX
-        document.getElementById('editar_membros2').addEventListener('submit', function(event){
-            event.preventDefault();
-            
-            var formData = new FormData(this);
+// Exibir membro
+document.getElementById('carregar_membros').addEventListener('click', function(event) {
+    event.preventDefault();
+    var formulario = document.querySelector('.forms');
+    var home = document.querySelector('.home');
+    var membros = document.querySelector('.membros');
+    var editar = document.querySelector('.editar');
 
-            fetch('editar.php', 'index.php', {
-                method: 'POST',
-                body: formData
-                
-            })
-            
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-
-                window.location.href = './code/editar.php';
-                document.querySelector('.editar').style.display = 'none';
-                document.querySelector('.form_editar').style.display = 'block';
-            })
-
-            .catch(error => console.error('Erro:', error));
-
-        });
+    // Esconder todas as seções
+    editar.style.display = 'none';
+    formulario.style.display = 'none';
+    home.style.display = 'none';
+    
+    // Mostrar o formulário de membros
+    membros.style.display = 'block';
+});
 
 
-        // SCRIPT PARA ENVIAR O ID DO MEMBRO A SER EDITADO VIA AJAX
-        document.getElementById('editar_membros3').addEventListener('submit', function(event){
-            event.preventDefault();
-            
-            var formData = new FormData(this);
 
-            fetch('editar.php', {
-                method: 'POST',
-                body: formData
-                
-            })
-            
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-
-                document.querySelector('.form_editar').style.display = 'none';
-                document.querySelector('.membros').style.display = 'block';
-            })
-
-            .catch(error => console.error('Erro:', error));
-
-        });
+// Editar membro
+document.getElementById('editar_membro').addEventListener('click', function(event) {
+    event.preventDefault();
+    var formulario = document.querySelector('.forms');
+    var home = document.querySelector('.home');
+    var membros = document.querySelector('.membros');
+    var editar = document.querySelector('.editar');
+    
+    // Esconder todas as seções
+    formulario.style.display = 'none';
+    home.style.display = 'none';
+    membros.style.display = 'none';
+    
+    // Mostrar o formulário de membros
+    editar.style.display = 'block';
+});
