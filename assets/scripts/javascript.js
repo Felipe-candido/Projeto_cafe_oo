@@ -60,7 +60,7 @@
             
             var formData = new FormData(this);
 
-            fetch('editar.php', {
+            fetch('editar.php', 'index.php', {
                 method: 'POST',
                 body: formData
                 
@@ -70,6 +70,7 @@
             .then(data => {
                 console.log(data);
 
+                window.location.href = './code/editar.php';
                 document.querySelector('.editar').style.display = 'none';
                 document.querySelector('.form_editar').style.display = 'block';
             })

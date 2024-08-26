@@ -181,6 +181,13 @@
                         <div class="text-center p-2">
                             <span class="titulo-login">Editar membro</span>
                         </div>
+                        <p>
+                            <?php
+
+                                echo $_POST['id_editar']
+
+                            ?>
+                        </p>
                         <form class="row" action="editar.php" id="editar_membros3" method="post">
                             <div class="mb-3 col-md-6">
                                 <label for="nome" class="form-label">Nome: </label>
