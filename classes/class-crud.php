@@ -56,11 +56,11 @@ class db_query
     // FUNÇÃO PARA EDITAR MEMBROS ATRAVÉS DO ID
     public function editar_membro($id, $novo_nome, $novo_semestre, $novo_curso, $novo_ano){
         $connection = new dbconnection;
-        $query = $connection->connect()->prepare('UPDATE membros SET nome = :nome, semestre = :semestre, curso = :curso, ano = :ano FROM membros WHERE id = :id');
+        $query = $connection->connect()->prepare('UPDATE membros SET nome = :nome, semestre = :semestre, curso = :curso, ano = :ano WHERE id = :id');
         $query->bindParam(':id', $id);
         $query->bindParam(':nome', $novo_nome);
         $query->bindParam(':semestre', $novo_semestre);
-        $query->bindParam(':cursos', $novo_curso);
+        $query->bindParam(':curso', $novo_curso);
         $query->bindParam(':ano', $novo_ano);
 
         $query->execute();

@@ -202,14 +202,14 @@
                         <div class="text-center p-2">
                             <span class="titulo-login">Editar participante</span>
                         </div>
-                        <form class="row" action="editar.php" id="editar_membros2" method="post">
+                        <form class="row" action="editar.php" method="post">
                             <div class="mb-3 col-md-6">
                                 <label for="id_editar" class="form-label">Digite o id do membro </label>
                                 <input type="text" name="id_editar" class="form-control" id="id_editar" required>
                             </div>
                             
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary" id="editar2">Editar</button>
+                                <button type="submit" class="btn btn-primary">Editar</button>
                             </div>
                         </form>
                     </div>

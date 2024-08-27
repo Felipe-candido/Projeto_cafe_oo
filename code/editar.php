@@ -1,20 +1,22 @@
+<?php
+require_once ('../classes/class-membro.php');
+require_once ('../classes/class_connection.php');
+require_once ('../classes/class-crud.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turma do Café - Fatec Araras</title>
+    <title>Editar membro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        .form_editar{
-            display: block;
-        }
     </style>
 </head>
 <body>
 
-    
+        
     <div class="form_editar">
         <div class="container mt-4">
             <div class="py-7 py-md-10" id="divCadastro">
@@ -23,7 +25,7 @@
                         <div class="text-center p-2">
                             <span class="titulo-login">Editar membro</span>
                         </div>
-                        <form class="row" action="editar.php" id="editar_membros3" method="post">
+                        <form class="row" action="editar.php" method="POST">
                             <div class="mb-3 col-md-6">
                                 <label for="nome" class="form-label">Nome: </label>
                                 <input type="text" name="nome_editar" class="form-control" id="nome_editar" required>
@@ -53,8 +55,10 @@
                                 <label for="ano" class="form-label">Ano de ingresso: </label>
                                 <input type="text" name="ano_editar" class="form-control" id="ano_editar" required>
                             </div>
+                            <input type="hidden" name="id_editar" value="<?php echo $_POST['id_editar']; ?>">
+
                             <div class="col-md-12 text-center">
-                                <button type="submit" id="editar3" class="btn btn-primary">Editar</button>
+                                <button type="submit" class="btn btn-primary">Editar</button>
                             </div>
                         </form>
                     </div>
@@ -63,40 +67,50 @@
         </div>
     </div>
 
-    
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../assets/scripts/javascript.js"></script>
 </body>
 
-<?php
-require_once ('../classes/class-membro.php');
-require_once ('../classes/class_connection.php');
-require_once ('../classes/class-crud.php');
-
-echo $_POST['id_editar'];
-echo $_POST['nome'];
-
-
-if (isset($_POST['id_editar'])) {
-   
-    $id_editar = $_POST['id_editar'];
-
-    if (isset($_POST['nome']) && isset($_POST['semestre']) && isset ($_POST['curso']) && isset($_POST['ano'])){
-        $novo_nome = $_POST['nome'];
-        $novo_semestre = $_POST['semestre'];
-        $novo_curso = $_POST['curso'];
-        $novo_ano = $_POST['ano'];
-
-        $connection = new db_query;
-        $editar = $connection()->editar_membro($id_editar, $novo_nome, $novo_semestre, $novo_curso, $novo_ano);
-        }
-}
-?>
 </html>
+
+<?php
+    require_once ('../classes/class-membro.php');
+    require_once ('../classes/class_connection.php');
+    require_once ('../classes/class-crud.php');
+    
+
+    if (isset($_POST['id_editar'])) {
+    
+        
+        if (isset($_POST['nome_editar']) && isset($_POST['semestre_editar']) && isset ($_POST['curso']) && isset($_POST['ano_editar'])){
+            // VALIDAÇÃO DAS OPÇÕES DOS CURSOS
+            $aux = $_POST['curso'];
+            switch ($aux) {
+                case '1':
+                    $curso = "DSM";
+                    break;
+                    
+                case '2':
+                    $curso = "GE";
+                    break;
+                        
+                        
+                case '3':
+                    $curso = "SI";
+                    break;
+                }
+
+            $novo_nome = $_POST['nome_editar'];
+            $novo_semestre = $_POST['semestre_editar'];
+            $id_editar = $_POST['id_editar'];
+            $novo_ano = $_POST['ano_editar'];
+
+            $query = new db_query;
+            $query->editar_membro($id_editar, $novo_nome, $novo_semestre, $curso, $novo_ano);
+            header('Location: index.php');
+            exit();
+        }
+    }
+?>
+
 
 
 
