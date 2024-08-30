@@ -65,6 +65,16 @@ class db_query
 
         $query->execute();
     }
+
+
+
+    // FUNÇÃO PARA APAGAR MEMBROS DO BANCO
+    public function delete_membro($id){
+        $connection = new dbconnection;
+        $query = $connection->connect()->prepare('DELETE FROM membros WHERE id = :id');
+        $query->bindParam(':id', $id);
+        $query->execute();
+    }
 }
 
 ?>

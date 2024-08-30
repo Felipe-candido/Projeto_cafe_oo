@@ -26,6 +26,11 @@
         .home{
             display: block;
         }
+
+        .apagar{
+            display: none;
+        }
+
     </style>
 
 </head>
@@ -180,9 +185,6 @@
                                 echo '<td>'. $membro['curso']. '</td>';
                                 echo '<td>'. $membro['ano']. '</td>';
                             echo '<tr>';
-                        } else {
-                            // Lidar com o erro, como exibir uma mensagem ou pular para o próximo item
-                            echo '<tr><td colspan="5">Nenhum dado encontrado ou erro na consulta.</td></tr>';
                         }
                         $id1 = $id1 + 1;
                     }
@@ -210,6 +212,31 @@
                             
                             <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary">Editar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="apagar">
+        <div class="container mt-4">
+            <div class="py-7 py-md-10" id="divCadastro">
+                <div class="row m-0 justify-content-center">
+                    <div class="col-7 px-md-4 py-md-4 bg-body-tertiary shadow-button">
+                        <div class="text-center p-2">
+                            <span class="titulo-login" style="color: red;">Apagar participante</span>
+                        </div>
+                        <form class="row" action="apagar.php" method="post">
+                            <div class="mb-3 col-md-6">
+                                <label for="id_apagar" class="form-label">Digite o id do membro </label>
+                                <input type="text" name="id_apagar" class="form-control" id="id_apagar" required>
+                            </div>
+                            
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary">Apagar</button>
                             </div>
                         </form>
                     </div>
