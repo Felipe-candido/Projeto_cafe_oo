@@ -175,18 +175,23 @@
                     $max = $query->select_id();
                     $id1 = 1;
 
-                    while ($id1 <= $max['id']){
-                        $membro = $query->exibir_participantes($id1);
-                        if ($membro !== false && is_array($membro)) {
-                            echo '<tr>';
-                                echo '<td>'. $membro['id']. '</td>';
-                                echo '<td>'. $membro['nome']. '</td>';
-                                echo '<td>'. $membro['semestre']. '</td>';
-                                echo '<td>'. $membro['curso']. '</td>';
-                                echo '<td>'. $membro['ano']. '</td>';
-                            echo '<tr>';
+                    if($max == 'true'){
+                        while ($id1 <= $max['id']){
+                            $membro = $query->exibir_participantes($id1);
+                            if ($membro !== false && is_array($membro)) {
+                                echo '<tr>';
+                                    echo '<td>'. $membro['id']. '</td>';
+                                    echo '<td>'. $membro['nome']. '</td>';
+                                    echo '<td>'. $membro['semestre']. '</td>';
+                                    echo '<td>'. $membro['curso']. '</td>';
+                                    echo '<td>'. $membro['ano']. '</td>';
+                                echo '<tr>';
+                            }
+                            $id1 = $id1 + 1;
                         }
-                        $id1 = $id1 + 1;
+                    }
+                    else{
+                        echo '<td> Lista de membros vazia <td>';
                     }
                     ?>
                 </tbody>
