@@ -44,10 +44,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="home">Home</a>
+                        <a class="nav-link" href="#" id="home">Mostrar pagantes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="forms_membros">Inserir Participante</a>
+                        <a class="nav-link" href="#" id="forms_membros">Registrar pagamento</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="carregar_membros">Carregar Membros</a>
@@ -69,10 +69,10 @@
         <!-- Banner -->
         <section class="jumbotron text-center">
             <div class="container">
-                <h1 class="jumbotron-heading">Bem-vindo à Comunidade do Café</h1>
-                <p class="lead text-muted">Explore, compartilhe e conecte-se com outros amantes de café.</p>
-                <a href="#" class="btn btn-primary my-2">Conheça Mais</a>
-                <a href="#" class="btn btn-secondary my-2">Entre em Contato</a>
+                <h1 class="jumbotron-heading">CENTRAL DE PAGAMENTOS</h1>
+                <p class="lead text-muted">Aqui sera a sessão dos contribuintes, onde será registrado todos os pagamentos.</p>
+                <a href="#" class="btn btn-primary my-2">Registrar pagamento</a>
+                <a href="#" class="btn btn-secondary my-2">Exibir pagamentos</a>
             </div>
         </section>
         
